@@ -26,13 +26,13 @@ export async function POST(req: NextRequest) {
 
     // Handle message updates
     if (update.message) {
-      const botCommands = new TelegramBotCommands(BOT_TOKEN);
+      const botCommands = new TelegramBotCommands(BOT_TOKEN!);
       await botCommands.handleCommand(update.message);
     }
 
     // Handle edited messages
     if (update.edited_message) {
-      const botCommands = new TelegramBotCommands(BOT_TOKEN);
+      const botCommands = new TelegramBotCommands(BOT_TOKEN!);
       await botCommands.handleCommand(update.edited_message);
     }
 
