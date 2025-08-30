@@ -18,7 +18,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const telegramApi = new TelegramAPI(BOT_TOKEN);
+  const telegramApi = new TelegramAPI(BOT_TOKEN!);
     
     // Set webhook
     const result = await telegramApi.setWebhook(webhookUrl);
@@ -42,7 +42,7 @@ export async function POST(req: NextRequest) {
 
 export async function GET() {
   try {
-    const telegramApi = new TelegramAPI(BOT_TOKEN);
+  const telegramApi = new TelegramAPI(BOT_TOKEN!);
     const botInfo = await telegramApi.getMe();
 
     return NextResponse.json({
@@ -60,7 +60,7 @@ export async function GET() {
 
 export async function DELETE() {
   try {
-    const telegramApi = new TelegramAPI(BOT_TOKEN);
+  const telegramApi = new TelegramAPI(BOT_TOKEN!);
     const result = await telegramApi.deleteWebhook();
 
     return NextResponse.json({

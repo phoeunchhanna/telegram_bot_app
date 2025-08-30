@@ -2,8 +2,10 @@ import { NextRequest, NextResponse } from 'next/server';
 import { TelegramBotCommands } from '../../../../lib/telegram-commands';
 import type { TelegramUpdate } from '../../../../types/telegram';
 
-const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
+// const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
+const BOT_TOKEN:string = process.env.TELEGRAM_BOT_TOKEN as string;
 const WEBHOOK_SECRET = process.env.TELEGRAM_WEBHOOK_SECRET;
+
 
 if (!BOT_TOKEN) {
   throw new Error('TELEGRAM_BOT_TOKEN environment variable is required');
